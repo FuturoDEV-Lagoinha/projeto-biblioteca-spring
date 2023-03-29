@@ -23,4 +23,9 @@ public class AutorController {
     public Autor salvar(@RequestBody Autor autor) {
         return this.autorService.salvar(autor);
     }
+
+    @PutMapping("/{id}")
+    public Autor atualizar(@PathVariable Long id,@RequestBody Autor autor) {
+        return this.autorService.atualizar(id, autor);
+    }
 }

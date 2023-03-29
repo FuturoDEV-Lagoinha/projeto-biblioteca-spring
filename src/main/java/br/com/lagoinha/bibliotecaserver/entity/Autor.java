@@ -1,7 +1,11 @@
 package br.com.lagoinha.bibliotecaserver.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+import java.time.LocalDate;
+
+@Data
 @Entity
 public class Autor {
 
@@ -12,19 +16,8 @@ public class Autor {
     @Column(length = 20, nullable = false)
     private String nome;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(length = 40, nullable = false)
+    private String sobreNome;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    private LocalDate nascimento;
 }
