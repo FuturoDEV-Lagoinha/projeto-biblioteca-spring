@@ -5,8 +5,7 @@
 Este projeto trata-se do backend do sistema de gestão da biblioteca da turma Lagoinha.
 Seguindo o seguinte modelo relacional:
 
-![Relacional Model](https://drive.google.com/file/d/1Q65VsROUSqwntdKJTwtUVpPguZwVW90C/view?usp=share_link)
-
+![Relacional Model](./relacional_model.png)
 ## Como executar
 
 Para executar este projeto você pode seguir os seguintes passos:
