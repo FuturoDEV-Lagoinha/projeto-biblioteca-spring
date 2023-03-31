@@ -10,5 +10,9 @@ public interface LivroService {
     Livro atualizar(Livro livro);
     Livro buscarPorId(Long id);
     List<Livro> listar();
+
+    List<Livro> buscarPorTitulo(String titulo);
+
+    List<String> buscarPorQuantidade(Integer quantidadeExemplar);
     void removerPorId(Long id);
 }

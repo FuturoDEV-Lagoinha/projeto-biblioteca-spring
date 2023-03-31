@@ -18,6 +18,9 @@ public class LivroServiceImpl implements LivroService {
 
     @Override
     public Livro salvar(Livro livro) {
+        if (this.livroRepository.existsByTituloAndIdioma(livro.getTitulo(), livro.getIdioma())) {
+            return null;
+        }
         return this.livroRepository.save(livro);
     }
 
@@ -49,7 +52,21 @@ public class LivroServiceImpl implements LivroService {
     }
 
     @Override
+    public List<Livro> buscarPorTitulo(String titulo) {
+        return this.livroRepository.findByTitulo(titulo);
+    }
+
+    @Override
+    public List<String> buscarPorQuantidade(Integer quantidadeExemplar) {
+        return this.livroRepository.buscarPorQuantidadeExemplar(quantidadeExemplar);
+    }
+
+    @Override
     public void removerPorId(Long id) {
-        this.livroRepository.deleteById(id);
+        Livro livroPesquisado = buscarPorId(id);
+
+        if (livroPesquisado != null) {
+            this.livroRepository.deleteById(id);
+        }
     }
 }

@@ -2,6 +2,7 @@ package br.com.lagoinha.bibliotecaserver.controller;
 
 import br.com.lagoinha.bibliotecaserver.entity.Livro;
 import br.com.lagoinha.bibliotecaserver.service.interfaces.LivroService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ public class LivroController {
 
     @PostMapping
     public Livro salvar(@RequestBody Livro livro) {
+
         return this.livroService.salvar(livro);
     }
 
@@ -27,6 +29,16 @@ public class LivroController {
     @GetMapping
     public List<Livro> listar() {
         return this.livroService.listar();
+    }
+
+    @GetMapping("/buscar-por-titulo")
+    public List<Livro> buscarPorTitulo(@PathParam("titulo") String titulo) {
+        return this.livroService.buscarPorTitulo(titulo);
+    }
+
+    @GetMapping("/buscar-por-quantidade")
+    public List<String> buscarPorQuantidade(@PathParam("quantidadeExemplar") Integer quantidadeExemplar) {
+        return this.livroService.buscarPorQuantidade(quantidadeExemplar);
     }
 
     @GetMapping("/{id}")
