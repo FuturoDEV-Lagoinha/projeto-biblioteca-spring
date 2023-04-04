@@ -17,7 +17,6 @@ public class LivroController {
 
     @PostMapping
     public Livro salvar(@RequestBody Livro livro) {
-
         return this.livroService.salvar(livro);
     }
 
