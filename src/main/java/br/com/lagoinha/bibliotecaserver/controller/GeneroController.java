@@ -3,7 +3,6 @@ package br.com.lagoinha.bibliotecaserver.controller;
 import br.com.lagoinha.bibliotecaserver.entity.Genero;
 import br.com.lagoinha.bibliotecaserver.service.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping
 public class GeneroController {
-
 
     @Autowired
     private GeneroService generoService;

@@ -16,6 +16,7 @@ public class AutorService {
     private AutorRepository autorRepository;
 
     public List<Autor> listar() {
+        //select id, name from autor
         return this.autorRepository.findAll();
     }
 
@@ -24,17 +25,29 @@ public class AutorService {
         return this.autorRepository.save(autor);
     }
 
+    public Autor buscaPorId(Long id) {
+        //select id, nome form autor where id = id
+        Optional<Autor> autorPesquisado = this.autorRepository.findById(id);
+        if(autorPesquisado.isPresent()){
+            return autorPesquisado.get();
+        }else {
+            return null;
+        }
+    }
+
     public Autor atualizar(Long id, Autor autorAtualizado) {
         //select * from autor where id = 1;
-        Optional<Autor> autorPesquisado = this.autorRepository.findById(id);
+        Autor autorPesquisado = buscaPorId(id);
 
-        if (autorPesquisado.isPresent()) {
-            autorPesquisado.get().setNome(autorAtualizado.getNome());
-            autorPesquisado.get().setSobreNome(autorAtualizado.getSobreNome());
-            autorPesquisado.get().setNascimento(autorAtualizado.getNascimento());
-            return this.autorRepository.save(autorPesquisado.get());
+        if (autorPesquisado != null) {
+            autorPesquisado.setNome(autorAtualizado.getNome());
+            autorPesquisado.setSobrenome(autorAtualizado.getSobrenome());
+            autorPesquisado.setNascimento(autorAtualizado.getNascimento());
+            return this.autorRepository.save(autorPesquisado);
         }
-
         return null;
+    }
+    public void deleteById(Long id) {
+        this.autorRepository.deleteById(id);
     }
 }
