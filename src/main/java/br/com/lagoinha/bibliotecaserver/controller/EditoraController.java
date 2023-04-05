@@ -20,23 +20,23 @@ public class EditoraController {
     }
 
     @GetMapping("/{id}")
-    public Editora buscarEditora(@PathVariable Long id){
+    public Editora buscarEditora(@PathVariable Long id) {
         return this.editoraService.buscarPorId(id);
     }
 
     @PostMapping
-    public Editora salvarEditora(@RequestBody Editora editora){
+    public Editora salvarEditora(@RequestBody Editora editora) {
         return this.editoraService.salvar(editora);
     }
 
     @PutMapping("/{id}")
-    public Editora atualizarEditora(@PathVariable Long id, @RequestBody Editora editora){
+    public Editora atualizarEditora(@PathVariable Long id, @RequestBody Editora editora) {
         return this.editoraService.atualizar(id, editora);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        this.editoraService.removerPorId(id);
+    public boolean delete(@PathVariable Long id) {
+        return this.editoraService.removerPorId(id);
     }
 
 }

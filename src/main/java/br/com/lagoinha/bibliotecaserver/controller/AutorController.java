@@ -15,7 +15,7 @@ public class AutorController {
     private AutorService autorService;
 
     @GetMapping
-    public List<Autor> listar(){
+    public List<Autor> listar() {
         return autorService.listar();
     }
 
@@ -30,13 +30,13 @@ public class AutorController {
     }
 
     @PutMapping("/{id}")
-    public Autor atualizar(@PathVariable Long id,@RequestBody Autor autor) {
+    public Autor atualizar(@PathVariable Long id, @RequestBody Autor autor) {
         return this.autorService.atualizar(id, autor);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        this.autorService.removerPorId(id);
+    public boolean delete(@PathVariable Long id) {
+        return this.autorService.removerPorId(id);
     }
 
 }

@@ -21,7 +21,7 @@ public class GeneroController {
     }
 
     @GetMapping("/{id}")
-    public Genero buscarPorId(@PathVariable Long id){
+    public Genero buscarPorId(@PathVariable Long id) {
         return this.generoService.buscarPorId(id);
     }
 
@@ -36,8 +36,8 @@ public class GeneroController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        this.generoService.removerPorId(id);
+    public boolean delete(@PathVariable Long id) {
+        return this.generoService.removerPorId(id);
     }
 
 }
