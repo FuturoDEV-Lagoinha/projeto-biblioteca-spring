@@ -18,9 +18,9 @@ public class LivroServiceImpl implements LivroService {
 
     @Override
     public Livro salvar(Livro livro) {
-        if (this.livroRepository.existsByTituloAndIdioma(livro.getTitulo(), livro.getIdioma())) {
-            return null;
-        }
+//        if (this.livroRepository.existsByTituloAndIdioma(livro.getTitulo(), livro.getIdioma())) {
+//            return null;
+//        }
         return this.livroRepository.save(livro);
     }
 
