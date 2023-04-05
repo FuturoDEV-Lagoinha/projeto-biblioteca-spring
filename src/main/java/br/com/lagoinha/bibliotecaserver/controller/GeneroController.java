@@ -1,5 +1,6 @@
 package br.com.lagoinha.bibliotecaserver.controller;
 
+import br.com.lagoinha.bibliotecaserver.entity.Editora;
 import br.com.lagoinha.bibliotecaserver.entity.Genero;
 import br.com.lagoinha.bibliotecaserver.service.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class GeneroController {
         return generoService.listar();
     }
 
+    @GetMapping("/{id}")
+    public Genero buscarPorId(@PathVariable Long id){
+        return this.generoService.buscarPorId(id);
+    }
+
     @PostMapping
     public Genero salvar(@RequestBody Genero genero) {
         return this.generoService.salvar(genero);
@@ -27,6 +33,11 @@ public class GeneroController {
     @PutMapping
     public Genero atualizar(@PathVariable Long id, Genero genero) {
         return this.generoService.atualizar(id, genero);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        this.generoService.removerPorId(id);
     }
 
 }

@@ -23,12 +23,33 @@ public class GeneroService {
     }
 
     public Genero atualizar(Long id, Genero generoAtualizado) {
-        Optional<Genero> generoPesquisado = this.generoRepository.findById(id);
-        if(generoPesquisado.isPresent()) {
-            generoPesquisado.get().setNome(generoAtualizado.getNome());
-            return this.generoRepository.save(generoPesquisado.get());
+        Genero generoPesquisado = buscarPorId(id);
+        if(generoPesquisado != null) {
+            generoPesquisado.setNome(generoAtualizado.getNome());
+            return this.generoRepository.save(generoPesquisado);
         }
         return null;
+    }
+
+    public Genero buscarPorId(Long id) {
+        Optional<Genero> generoPesquisado = this.generoRepository.findById(id);
+        if(generoPesquisado.isPresent()) {
+            return generoPesquisado.get();
+        }
+        return null;
+    }
+
+    public boolean removerPorId(Long id) {
+        try {
+            Genero generoPesquisado = buscarPorId(id);
+            if (generoPesquisado == null) {
+                return false;
+            }
+            this.generoRepository.deleteById(id);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
 }

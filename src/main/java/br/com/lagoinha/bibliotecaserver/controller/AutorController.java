@@ -21,7 +21,7 @@ public class AutorController {
 
     @GetMapping("/{id}")
     public Autor buscarPorId(@PathVariable Long id) {
-        return this.autorService.buscaPorId(id);
+        return this.autorService.buscarPorId(id);
     }
 
     @PostMapping
@@ -36,7 +36,7 @@ public class AutorController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        this.autorService.deleteById(id);
+        this.autorService.removerPorId(id);
     }
 
 }

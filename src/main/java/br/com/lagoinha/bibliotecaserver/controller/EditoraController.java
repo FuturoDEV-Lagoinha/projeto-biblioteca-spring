@@ -10,27 +10,33 @@ import java.util.List;
 @RestController
 @RequestMapping("/editora")
 public class EditoraController {
+
     @Autowired
     private EditoraService editoraService;
 
     @GetMapping
     public List<Editora> listarEditora() {
-        return editoraService.listarEditora();
+        return editoraService.listar();
     }
 
     @GetMapping("/{id}")
     public Editora buscarEditora(@PathVariable Long id){
-        return this.editoraService.buscarEditora(id);
+        return this.editoraService.buscarPorId(id);
     }
 
     @PostMapping
     public Editora salvarEditora(@RequestBody Editora editora){
-        return this.editoraService.salvarEditora(editora);
+        return this.editoraService.salvar(editora);
     }
 
     @PutMapping("/{id}")
     public Editora atualizarEditora(@PathVariable Long id, @RequestBody Editora editora){
-        return this.editoraService.atualizarEditora(id, editora);
+        return this.editoraService.atualizar(id, editora);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        this.editoraService.removerPorId(id);
     }
 
 }

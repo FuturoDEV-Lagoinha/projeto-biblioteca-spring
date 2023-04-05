@@ -25,19 +25,19 @@ public class AutorService {
         return this.autorRepository.save(autor);
     }
 
-    public Autor buscaPorId(Long id) {
+    public Autor buscarPorId(Long id) {
         //select id, nome form autor where id = id
         Optional<Autor> autorPesquisado = this.autorRepository.findById(id);
-        if(autorPesquisado.isPresent()){
+        if (autorPesquisado.isPresent()) {
             return autorPesquisado.get();
-        }else {
+        } else {
             return null;
         }
     }
 
     public Autor atualizar(Long id, Autor autorAtualizado) {
         //select * from autor where id = 1;
-        Autor autorPesquisado = buscaPorId(id);
+        Autor autorPesquisado = buscarPorId(id);
 
         if (autorPesquisado != null) {
             autorPesquisado.setNome(autorAtualizado.getNome());
@@ -47,7 +47,17 @@ public class AutorService {
         }
         return null;
     }
-    public void deleteById(Long id) {
-        this.autorRepository.deleteById(id);
+
+    public boolean removerPorId(Long id) {
+        try {
+            Autor autorPesquisado = buscarPorId(id);
+            if (autorPesquisado == null) {
+                return false;
+            }
+            this.autorRepository.deleteById(id);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }

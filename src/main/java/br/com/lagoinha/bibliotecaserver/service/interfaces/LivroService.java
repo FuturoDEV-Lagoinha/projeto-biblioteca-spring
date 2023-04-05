@@ -18,6 +18,6 @@ public interface LivroService {
 
     List<String> buscarPorQuantidade(Integer quantidadeExemplar);
 
-    void removerPorId(Long id);
+    boolean removerPorId(Long id);
 
 }

@@ -13,6 +13,7 @@ public class Livro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "livro_id")
     private Long id;
 
     @Column(length = 120, nullable = false)
@@ -27,5 +28,6 @@ public class Livro {
     @Column(length = 120, nullable = false)
     private String codigoIsbn;
 
-    private Integer quantidadeExemplar;
+    private Integer qtdExemplar;
+
 }

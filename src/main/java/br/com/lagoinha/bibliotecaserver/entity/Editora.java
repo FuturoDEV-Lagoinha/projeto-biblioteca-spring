@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 public class Editora {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "editora_id")
-    private Long id ;
+    private Long id;
 
     @Column (length = 20, nullable = false)
     private String nome;

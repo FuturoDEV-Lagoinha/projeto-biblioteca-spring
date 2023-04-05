@@ -62,12 +62,17 @@ public class LivroServiceImpl implements LivroService {
     }
 
     @Override
-    public void removerPorId(Long id) {
-        Livro livroPesquisado = buscarPorId(id);
-
-        if (livroPesquisado != null) {
+    public boolean removerPorId(Long id) {
+        try {
+            Livro livroPesquisado = buscarPorId(id);
+            if (livroPesquisado == null) {
+                return false;
+            }
             this.livroRepository.deleteById(id);
+        } catch (Exception e) {
+            return false;
         }
+        return true;
     }
 
 }

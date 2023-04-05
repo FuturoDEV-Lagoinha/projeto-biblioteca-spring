@@ -17,4 +17,5 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
     List<String> buscarPorQuantidadeExemplar(@Param("quantidade") Integer quantidadeExemplar);
 
     Boolean existsByTituloAndIdioma(String titulo, String idioma);
+
 }
