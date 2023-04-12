@@ -7,11 +7,8 @@ import java.util.List;
 public interface LivroService {
 
     Livro salvar(Livro livro);
-
     Livro atualizar(Livro livro);
-
     Livro buscarPorId(Long id);
-
     List<Livro> listar();
 
     List<Livro> buscarPorTitulo(String titulo);

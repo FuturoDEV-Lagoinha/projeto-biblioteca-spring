@@ -10,7 +10,8 @@ import java.util.List;
 
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Long> {
-    List<Livro> findByTitulo(String titulo); //select * from livro where titulo = titulo que está passando aqui
+
+    List<Livro> findByTitulo(String titulo);
 
     @Query(value = "select titulo from livro where quantidade_exemplar = :quantidade", nativeQuery = true)
     List<String> buscarPorQuantidadeExemplar(@Param("quantidade") Integer quantidadeExemplar);
