@@ -11,8 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping
 public class GeneroController {
-
-
     @Autowired
     private GeneroService generoService;
 

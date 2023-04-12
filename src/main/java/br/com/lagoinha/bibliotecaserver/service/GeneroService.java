@@ -10,9 +10,8 @@ import java.util.Optional;
 
 @Service
 public class GeneroService {
-
     @Autowired
-private GeneroRepository generoRepository;
+    private GeneroRepository generoRepository;
 
     public List<Genero> listar() {
         return this.generoRepository.findAll();
@@ -30,6 +29,4 @@ private GeneroRepository generoRepository;
         }
         return null;
     }
-
-
 }
