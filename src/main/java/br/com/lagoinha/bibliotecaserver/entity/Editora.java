@@ -3,13 +3,13 @@ package br.com.lagoinha.bibliotecaserver.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Genero {
-
+public class Editora {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "editora_id")
+    private Long id ;
 
-    @Column(length = 20, nullable = false)
+    @Column (length = 20, nullable = false)
     private String nome;
 
     public Long getId() {
