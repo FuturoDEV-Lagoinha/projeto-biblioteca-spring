@@ -1,3 +1,4 @@
+
 package br.com.lagoinha.bibliotecaserver.entity;
 
 import jakarta.persistence.*;
