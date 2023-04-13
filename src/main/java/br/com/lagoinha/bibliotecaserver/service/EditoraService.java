@@ -33,9 +33,11 @@ public class EditoraService {
     }
 
     public Editora buscarEditora(Long id) {
+        if(id == null){
+            throw new RuntimeException("Id nulo!");
+        }
         Optional<Editora> editoraPesquisada = this.editoraRepository.findById(id);
         if(editoraPesquisada.isPresent()){
-            editoraPesquisada.get();
             return editoraPesquisada.get();
         }
         return null;

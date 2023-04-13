@@ -22,7 +22,7 @@ public class EditoraController {
     @GetMapping("/{id}")
     public Editora buscarEditora(@PathVariable Long id){
         if(Objects.nonNull(id)) {
-            id = null;
+
         }
         return this.editoraService.buscarEditora(id);
     }
