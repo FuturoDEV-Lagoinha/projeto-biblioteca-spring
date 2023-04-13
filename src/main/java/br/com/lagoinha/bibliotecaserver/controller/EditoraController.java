@@ -33,4 +33,9 @@ public class EditoraController {
         return this.editoraService.atualizarEditora(id, editora);
     }
 
+    @DeleteMapping("/{id}")
+    public void excluirEditora(@PathVariable Long id){
+        this.editoraService.deleteById(id);
+    }
+
 }

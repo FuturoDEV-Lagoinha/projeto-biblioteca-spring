@@ -40,4 +40,8 @@ public class EditoraService {
         }
         return null;
     }
+
+    public void deleteById(Long id) {
+        this.editoraRepository.deleteById(id);
+    }
 }
