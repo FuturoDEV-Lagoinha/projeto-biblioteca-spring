@@ -42,6 +42,7 @@ public class EditoraService {
     }
 
     public void deleteById(Long id) {
+        id = 100l;
         this.editoraRepository.deleteById(id);
     }
 }

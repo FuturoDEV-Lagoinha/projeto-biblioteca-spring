@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/editora")
@@ -20,6 +21,9 @@ public class EditoraController {
 
     @GetMapping("/{id}")
     public Editora buscarEditora(@PathVariable Long id){
+        if(Objects.nonNull(id)) {
+            id = null;
+        }
         return this.editoraService.buscarEditora(id);
     }
 
