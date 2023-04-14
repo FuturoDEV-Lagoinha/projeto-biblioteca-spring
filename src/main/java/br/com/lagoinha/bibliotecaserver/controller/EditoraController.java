@@ -21,9 +21,6 @@ public class EditoraController {
 
     @GetMapping("/{id}")
     public Editora buscarEditora(@PathVariable Long id){
-        if(Objects.nonNull(id)) {
-
-        }
         return this.editoraService.buscarEditora(id);
     }
 
