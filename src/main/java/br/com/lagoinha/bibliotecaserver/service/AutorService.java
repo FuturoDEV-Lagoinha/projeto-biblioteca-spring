@@ -2,13 +2,14 @@ package br.com.lagoinha.bibliotecaserver.service;
 
 import br.com.lagoinha.bibliotecaserver.entity.Autor;
 import br.com.lagoinha.bibliotecaserver.repository.AutorRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class AutorService {
 
@@ -43,6 +44,7 @@ public class AutorService {
             autorPesquisado.setNome(autorAtualizado.getNome());
             autorPesquisado.setSobrenome(autorAtualizado.getSobrenome());
             autorPesquisado.setNascimento(autorAtualizado.getNascimento());
+            log.info("");
             return this.autorRepository.save(autorPesquisado);
         }
         return null;
