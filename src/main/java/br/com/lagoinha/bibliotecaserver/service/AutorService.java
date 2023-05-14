@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
 @Slf4j
 @Service
 public class AutorService {
@@ -44,11 +48,16 @@ public class AutorService {
             autorPesquisado.setNome(autorAtualizado.getNome());
             autorPesquisado.setSobrenome(autorAtualizado.getSobrenome());
             autorPesquisado.setNascimento(autorAtualizado.getNascimento());
+<<<<<<< HEAD
             log.info("");
+=======
+            log.info("Atualizando autor...");
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
             return this.autorRepository.save(autorPesquisado);
         }
         return null;
     }
+<<<<<<< HEAD
 
     public boolean removerPorId(Long id) {
         try {
@@ -61,5 +70,15 @@ public class AutorService {
             return false;
         }
         return true;
+=======
+    public void deleteById(Long id) {
+        try {
+            this.autorRepository.deleteById(id);
+        } catch (Exception e){
+            log.error("Impossível remoção!");
+        }
+
+
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
     }
 }

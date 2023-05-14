@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
 package br.com.lagoinha.bibliotecaserver.service;
 
 import br.com.lagoinha.bibliotecaserver.entity.Livro;
@@ -74,5 +78,8 @@ public class LivroServiceImpl implements LivroService {
         }
         return true;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
 }

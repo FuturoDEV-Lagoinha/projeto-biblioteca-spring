@@ -4,14 +4,21 @@ import br.com.lagoinha.bibliotecaserver.entity.Editora;
 import br.com.lagoinha.bibliotecaserver.entity.Genero;
 import br.com.lagoinha.bibliotecaserver.service.GeneroService;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
+=======
+import org.springframework.stereotype.Controller;
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/genero")
 public class GeneroController {
+<<<<<<< HEAD
 
+=======
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
     @Autowired
     private GeneroService generoService;
 

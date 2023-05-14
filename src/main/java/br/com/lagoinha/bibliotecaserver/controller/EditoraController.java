@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/editora")
@@ -35,8 +36,16 @@ public class EditoraController {
     }
 
     @DeleteMapping("/{id}")
+<<<<<<< HEAD
     public boolean delete(@PathVariable Long id) {
         return this.editoraService.removerPorId(id);
     }
 
 }
+=======
+    public void excluirEditora(@PathVariable Long id){
+        this.editoraService.deleteById(id);
+    }
+
+}
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928

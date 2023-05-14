@@ -2,15 +2,20 @@ package br.com.lagoinha.bibliotecaserver.service;
 
 import br.com.lagoinha.bibliotecaserver.entity.Genero;
 import br.com.lagoinha.bibliotecaserver.repository.GeneroRepository;
+import jakarta.persistence.EntityExistsException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
 public class GeneroService {
+<<<<<<< HEAD
 
+=======
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
     @Autowired
     private GeneroRepository generoRepository;
 
@@ -19,6 +24,10 @@ public class GeneroService {
     }
 
     public Genero salvar(Genero genero){
+        if(this.generoRepository.existsByNome(genero.getNome())){
+            log.error("Gênero já existe");
+            throw new EntityExistsException("Gênero já existente!");
+        }
         return this.generoRepository.save(genero);
     }
 
@@ -30,6 +39,7 @@ public class GeneroService {
         }
         return null;
     }
+<<<<<<< HEAD
 
     public Genero buscarPorId(Long id) {
         Optional<Genero> generoPesquisado = this.generoRepository.findById(id);
@@ -52,4 +62,6 @@ public class GeneroService {
         return true;
     }
 
+=======
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
 }

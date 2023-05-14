@@ -1,8 +1,14 @@
 package br.com.lagoinha.bibliotecaserver.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Editora {
 
     @Id
@@ -12,6 +18,7 @@ public class Editora {
 
     @Column (length = 20, nullable = false)
     private String nome;
+<<<<<<< HEAD
 
     public Long getId() {
         return id;
@@ -29,3 +36,6 @@ public class Editora {
         this.nome = nome;
     }
 }
+=======
+}
+>>>>>>> d66a2ea23cce4e34d45cc3c34667f447149d6928
